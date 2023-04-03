@@ -17,15 +17,15 @@ jobs:
         working-directory: ./my-agora-states-client
       - name: SHOW AWS CLI VERSION
         env:
-          AWS_ACCESS_KEY_ID: ${{ AKIASEBV4CULBTIOMK7U }}
-          AWS_SECRET_ACCESS_KEY: ${{ 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 }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
         run: |
           aws --version
       - name: Sync Bucket
         env:
-          AWS_ACCESS_KEY_ID: ${{ AKIASEBV4CULBTIOMK7U }}
-          AWS_SECRET_ACCESS_KEY: ${{ 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 }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
         run: |
           aws s3 sync \
@@ -33,4 +33,3 @@ jobs:
             build s3://fe-73-wlsljh0516-s3 \
             --delete
         working-directory: ./my-agora-states-client
-        
