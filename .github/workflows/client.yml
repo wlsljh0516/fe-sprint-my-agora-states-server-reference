@@ -33,3 +33,4 @@ jobs:
             build s3://fe-73-wlsljh0516-s3 \
             --delete
         working-directory: ./my-agora-states-client
+        
